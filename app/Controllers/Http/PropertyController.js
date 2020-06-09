@@ -22,7 +22,8 @@ class PropertyController {
     const { latitude, longitude } = request.all();
 
     const properties = Property.query()
-      .nearBy(latitude, longitude, 10)
+      .with('images')
+      //.nearBy(latitude, longitude, 10)
       .fetch();
       
     return properties;
